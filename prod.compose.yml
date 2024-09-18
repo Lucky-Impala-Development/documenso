@@ -33,10 +33,10 @@ services:
       - database:/var/lib/postgresql/data
 
   documenso:
-    image: documenso/documenso:latest
+    image: lucky-impala-dev/documenso:latest
     # container_name: documenso-beta
     # build:
-    #   context: ../../
+    #   context: .
     #   dockerfile: ./docker/Dockerfile
     depends_on:
       database:
