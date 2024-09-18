@@ -50,3 +50,8 @@ yarn-error.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+*.p12
+*.cer
+*.key
+*.p8
