@@ -248,7 +248,10 @@ export class LocalJobProvider extends BaseJobProvider {
         method: 'POST',
         body: JSON.stringify(data),
         headers,
-      }).catch(() => null),
+      }).catch((e) => {
+        console.error('Error submitting job to endpoint:', e);
+        return null;
+      }),
       new Promise((resolve) => {
         setTimeout(resolve, 150);
       }),
@@ -303,7 +306,8 @@ export class LocalJobProvider extends BaseJobProvider {
           });
 
           return result;
-        } catch {
+        } catch (e) {
+          console.error('Error running task:', e);
           task = await prisma.backgroundJobTask.update({
             where: {
               id: task.id,
